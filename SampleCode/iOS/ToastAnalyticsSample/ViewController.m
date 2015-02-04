@@ -71,8 +71,8 @@
     [TAGAnalytics traceLevelUp:10];
     [TAGAnalytics traceEvent:@"EVENT_TYPE" eventCode:@"EVENT_CODE" param1:@"PARAM1" param2:@"PARAM2" value:10.0f level:10];
     [TAGAnalytics traceFriendCount:10];
-    [TAGAnalytics traceMoneyAcquisition:@"USAGE_CODE" type:@"TYPE" acquisitionAmount:10.0f level:10];
-    [TAGAnalytics traceMoneyConsumption:@"USAGE_CODE" type:@"TYPE" consumptionAmount:10.0f level:10];
+    [TAGAnalytics traceMoneyAcquisition:@"USAGE_CODE" type:@"0" acquisitionAmount:10.0f level:10];
+    [TAGAnalytics traceMoneyConsumption:@"USAGE_CODE" type:@"1" consumptionAmount:10.0f level:10];
     [TAGAnalytics tracePurchase:@"ITEM_CODE" payment:10.0f unitCost:10.0f currency:@"KRW" level:10];
     [TAGAnalytics traceStartSpeed:@"INTERVAL"];
     [TAGAnalytics traceEndSpeed:@"INTERVAL"];

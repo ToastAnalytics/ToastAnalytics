@@ -123,8 +123,8 @@ public class MainActivity extends Activity {
 		GameAnalytics.traceLevelUp(10);
 		GameAnalytics.traceEvent("EVENT_TYPE", "EVENT_CODE", "PARAM1", "PARAM2", 10.0f, 10);
 		GameAnalytics.traceFriendCount(10);
-		GameAnalytics.traceMoneyAcquisition("USAGE_CODE", "TYPE", 10.0f, 10);
-		GameAnalytics.traceMoneyConsumption("USAGE_CODE", "TYPE", 10.0f, 10);
+		GameAnalytics.traceMoneyAcquisition("USAGE_CODE", "0", 10.0f, 10);
+		GameAnalytics.traceMoneyConsumption("USAGE_CODE", "1", 10.0f, 10);
 		GameAnalytics.tracePurchase("ITEM_CODE", 10.0f, 10.0f, "KRW", 10);
 		GameAnalytics.traceStartSpeed("INTERVAL");
 		GameAnalytics.traceEndSpeed("INTERVAL");

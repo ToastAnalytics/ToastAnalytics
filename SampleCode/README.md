@@ -5,4 +5,4 @@
 Programming Guide는 [http://cloud.toast.com/documents/2/](http://cloud.toast.com/documents/2/)에서 확인하세요.
 SDK는 [http://cloud.toast.com/documents/6/](http://cloud.toast.com/documents/6/)에서 다운로드 가능합니다.
 
-[API별 주요 Parameter 설명](API별 주요 Parameter 설명) 참고하세요.
+[API별 주요 Parameter 설명](https://github.com/hongseok/toastanalytics/wiki/API%EB%B3%84%20%EC%A3%BC%EC%9A%94%20Parameter%20%EC%84%A4%EB%AA%85) 참고하세요.

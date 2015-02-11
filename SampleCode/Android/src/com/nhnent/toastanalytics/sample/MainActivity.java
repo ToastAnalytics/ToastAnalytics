@@ -27,11 +27,13 @@ public class MainActivity extends Activity {
 	private static final String APP_VERISION = "app_ver";	// Game에서 임의로 정의하여 사용합니다. 보통 게임 버전을 사용하면 됩니다.
 	
 	private static final String USER_ID = "userid";
+	private static final String ADSPACE_NAME = "CAMPAIGN_SPACE";
 	
 	private Activity activity;
 	private Context context;
 	
 	private Button btnPromotion;
+	private Button btnCampaign;
 
 	
 	@Override
@@ -40,6 +42,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		btnPromotion = (Button)findViewById(R.id.btn_promotion);
+		btnCampaign = (Button)findViewById(R.id.btn_campaign);
 
 		activity = this;
 		context = getApplicationContext();
@@ -90,6 +93,19 @@ public class MainActivity extends Activity {
 		 */
 		CheckTask task = new CheckTask();
 		task.execute();
+		
+		
+		btnCampaign.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				/*
+				 * 캠페인 배너/팝업을 노출합니다.
+				 * 게임에서 적절한 시점에 호출해 주세요.
+				 * ADSPCE는 프로모션 등록시 설정한 노출위치의 Key 입니다.
+				 */
+				GameAnalytics.showCampaign(ADSPACE_NAME, activity);	
+			}
+		});
 		
 		
 		appRunning();

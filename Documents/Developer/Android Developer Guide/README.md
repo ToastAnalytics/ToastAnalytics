@@ -23,6 +23,8 @@
 다운로드 받은 GameAnalyticsSDK_Android_v1.xxx.zip 파일의 압축을 풀어 아래의 그림과 같이 프로젝트의 libs 디렉토리에 복사합니다. (GameAnalytics SDK jar파일 1개와 성능/보안 지표 수집을 위한 native library가 있습니다)
 (Proguard 사용시 다음 옵션을 추가해야 합니다. "-keep public class com.toast.android.analytics.external.leaktest.MemoryInfo { public *;}")
 
+![Project Setting](https://raw.githubusercontent.com/ToastAnalytics/ToastAnalytics/master/Documents/Developer/Android%20Developer%20Guide/images/pg_aos_001.png)
+
 다운로드 받은 구글 서비스 API 의 경우 jar 형태가 아닌 안드로이드 라이브러리 이므로, 해당 라이브러리를 이클립스로 import 해야 사용자 프로젝트에서 사용할 수 있습니다.
 (http://developer.android.com/google/play-services/setup.html)
 이클립스에 구글 서비스 API를 라이브러리로 import 한 후, 현재 작성중인 사용자 프로젝트 루트 폴더에 마우스 커서를 놓고 우클릭 합니다.
@@ -137,6 +139,8 @@ Install Receiver와 함께 등록해 줍니다.
 
 SDK를 사용하기 위해서는 앱 등록 후 발행되는 “앱 아이디”와 “컴퍼니 아이디”가 필요합니다. 앱 등록 방법은 링크(http://cloud.toast.com/documents/2/)를 참고하세요.
 initializeSDK 함수의 AppID는 앱 정보의 “AppKey”를, CompanyID는 “컴퍼니 아이디” 를 사용합니다.
+
+![App Key](https://raw.githubusercontent.com/ToastAnalytics/ToastAnalytics/master/Documents/Developer/Android%20Developer%20Guide/images/pg_aos_002.png)
 
 GameAnalytics SDK를 사용하기 위해서는 SDK 초기화를 먼저 수행해야 합니다.
 GameAnalytics 클래스의 initializeSDK 함수는 SDK 초기화를 수행하는 함수입니다. 이 함수는 내부적으로 필요한 데이터(디바이스 정보, 앱 설정 정보)를 확인하고, 로그 전송을 위한 환경을 설정하는 작업을 수행합니다.

@@ -32,7 +32,7 @@
 Analytics SDK에서는 다음과 같은 Permission을 사용합니다.
 
 
-'''
+```
 <!-- 단말기 모뎀 상태(ex. 망 사업자명) 조회를 위해 사용합니다. -->
 <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 <!-- 외부 스토리지 쓰기 권한. 미전송 내부적으로 사용하는 데이터 캐시를 위해 사용합니다 -->
@@ -40,7 +40,7 @@ Analytics SDK에서는 다음과 같은 Permission을 사용합니다.
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 <uses-permission android:name="android.permission.INTERNET" />
-'''
+```
 
 
 스토어 정보는 사용자가 앱을 다운로드한 마켓에 대한 정보를 추적하기 위한 설정입니다. “Google”, “TStore”, “Naver”등 마켓에 맞게 변경하여 사욥합니다. 마켓 문자열은 게임에서 임의로 정의하여 사용할 수 있습니다.

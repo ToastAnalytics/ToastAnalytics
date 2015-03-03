@@ -19,7 +19,7 @@
 
 ## 프로젝트설정
 
-1. 라이브러리 dependency 설정
+### 라이브러리 dependency 설정
 다운로드 받은 GameAnalyticsSDK_Android_v1.xxx.zip 파일의 압축을 풀어 아래의 그림과 같이 프로젝트의 libs 디렉토리에 복사합니다. (GameAnalytics SDK jar파일 1개와 성능/보안 지표 수집을 위한 native library가 있습니다)
 (Proguard 사용시 다음 옵션을 추가해야 합니다. "-keep public class com.toast.android.analytics.external.leaktest.MemoryInfo { public *;}")
 
@@ -30,7 +30,7 @@
 이클립스에 구글 서비스 API를 라이브러리로 import 한 후, 현재 작성중인 사용자 프로젝트 루트 폴더에 마우스 커서를 놓고 우클릭 합니다.
 우클릭해서 나타나는 팝업창에서 Properties 메뉴를 누르고 위 그림에서 보이는 것처럼 팝업창이 뜨면, 팝업창 좌측 메뉴에 있는 Android를 선택한 후, 우측의 library 부분에서 [Add]버튼을 눌러 구글 서비스 API 라이브러리의 경로를 지정하도록 합니다.
 
-2. AndroidManifest 설정
+### AndroidManifest 설정
 Analytics SDK에서는 다음과 같은 Permission을 사용합니다.
 
 
@@ -246,7 +246,7 @@ public class TestActivty extends Activity {
 
 In-App Purchase, 머니 획득/사용, 레벨업, 친구 수 변경등 사용자의 Action에 대해 추적할 수 있습니다.
 
-1. In-App Purchase
+### In-App Purchase
 
 In-App Purchase가 발생한 후 tracePurchase를 호출하여 매출 정보를 전송합니다. 
 Currency는 ISO-4217(http://en.wikipedia.org/wiki/ISO_4217)에서 정의한 코드를 사용합니다. 
@@ -258,7 +258,7 @@ GameAnalytics.tracePurchase("GEM_10", 0.99f, 0.99f, "USD", 10);
 ```
 
 
-2. 재화 획득/사용
+### 재화 획득/사용
 
 게임내에서 재화의 획득/사용시 호출합니다. 1차 재화, 2차 재화의 변동량을 추적합니다. 일반적으로 1차 재화는 In-App Purchase를 통해서 구매하는 재화(ex. 보석, 루비등) 입니다. 2차 재화는 1차 재화를 이용하여 구매하는 재화(ex. 체리, 하트등) 입니다. 
 IAP를 통해서 보석 10개를 구매한 경우 아래와 같이 사용합니다. 
@@ -276,7 +276,7 @@ GameAnalytics.traceMoneyAcquisition("CODE_BUY_CHERRY", "1", 100, 10);
 
 1차 재화를 사용하여 2차 재화를 구입한 경우 실제 ‘1차 재화 감소’->‘2차 재화 증가’가 발생합니다. 하지만 2차 재화를 구입하기 위해서 1차 재화를 사용하는 경우 별도의 재화 소모로 판정하지 않고 싶은 경우 ‘2차 재화 획득’ 로그만 전송하여도 됩니다.
 
-3. 레벨업
+### 레벨업
 
 사용자 레벨이 변경되는 경우 traceLevelUp을 호출합니다. 참고로 대부분의 액션 추적 API는 레벨별 액션 추적을 위해서 사용자 Level을 같이 받습니다. 
 사용자 레벨이 10으로 변경되는 경우 아래와 같이 호출합니다. 한 사용자의 레벨은 반드시 증가해야만 합니다. 감소하는 경우 정확한 데이터 측정이 불가능합니다. 
@@ -288,7 +288,7 @@ GameAnalytics.traceLevelUp(10);
 ```
 
 
-4. 친구
+### 친구
 
 사용자의 친구 숫자를 등록합니다. 일반적으로 앱 실행 후 친구 정보 로딩이 완료된 시점에 호출하면 됩니다.
 
@@ -310,12 +310,12 @@ GameAnalytics.traceFriendCount(100);
 
 ## 캠페인 연동
 
-1. 캠페인 연동 사전 준비
+### 캠페인 연동 사전 준비
 캠페인 연동 및 실행을 위해서는 별도의 가이드를 제공하고 있습니다.
 Toast Analytics의 “캠페인 실행” 메뉴의 “페이지 가이드”를 참고하세요.
 http://analytics.toast.com/promotion/share/document/4.2_Campaign_run.pdf
 
-2. 푸시 연동
+### 푸시 연동
 Analytics SDK에서 캠페인을 위해서 GCM을 사용합니다. GCM 사용을 위해서는 Analytics 관리자 페이지에 Project Number와 API Key를 등록해야 합니다. 또한 SDK에는 SenderID를 등록해야 합니다. 
 GCM에 관련된 전반적인 내용은 Google에서 제공하는 “Google Cloud Message” 문서를 참고하세요. 
 http://developer.android.com/google/gcm/gs.html 
@@ -515,7 +515,7 @@ function setListener() {
 }
 ```
 
-4. 캠페인 Show/Hide
+### 캠페인 Show/Hide
 현재 사용자에게 진행 중인 캠페인이 있는 경우 Analytics 웹사이트에서 등록한 캠페인 팝업/배너를 보여주고, 노출된 팝업/배너를 숨기는 메소드입니다. 파라미터인 adspaceName은 Analytics 웹사이트에서 캠페인 등록시에 정의한 adspace 이름을 사용하면 됩니다. Adspace란 팝업/배너가 나타나는 게임 내의 특정 위치를 의미합니다.
 showCampaign() 메소드는 해당 adspace를 사용하는 캠페인이 없으면 아무런 동작도 하지 않으므로, 캠페인 팝업/배너를 노출할 것으로 예상되는 게임 내의 여러 지점에 각각 다른 adspaceName으로 함수를 호출해두면 이후에 별도의 게임 클라이언트 수정없이도 게임 운영자가 Analytics 웹사이트에서 캠페인을 등록하는 작업만으로 쉽게 팝업/배너를 노출할 수 있게 됩니다.
 Adspace 등록 방법은 “캠페인 테스트 가이드”를 참고하세요.
@@ -551,10 +551,10 @@ traceEvent에 사용하는 String Type 파라미터(event type, event code, para
 
 게임에서 타 게임과 프로모션 연동시 사용합니다.
 
-1. 프로모션 연동 사전 준비
+### 프로모션 연동 사전 준비
 프로모션 연동 및 실행을 위해서는 별도의 가이드를 제공하고 있습니다.
 
-2. 프로모션 버튼 추가
+### 프로모션 버튼 추가
 Analytics 설정 페이지에서 프로모션 정보를 등록하고 버튼 이미지를 등록하면 SDK 초기화 할때 버튼을 다운로드 받아서 Device에 저장합니다.
 게임에서는 버튼 이미지를 이용하여 적절한 위치에 버튼을 생성하여야 합니다.
 버튼을 생성하기 전에 먼저 프로모션이 가능한 상태인지 확인합니다. 관리자가 Analytics 웹페이지에서 프로모션을 사용하지 않겠다고 설정하거나, 버튼 이미지 다운로드에 실패 또는 프로모션 서비스 점검이나 장애시에는 프로모션 진행이 불가능한 상태이므로 버튼을 화면에 표시하지 않아야 합니다.“isPromotionAvailable()”으로 프로모션 가능 여부를 확인할 수 있습니다. 프로모션 진행이 가능한 상태이면 “getPromotionButtonImagePath()&rdqou; 함수를 이용하여 버튼 이미지 경로를 확인해서 게임에서 적절한 위치에 버튼을 생성합니다. (버튼 이미지는 PNG 형식으로 저장합니다.)
@@ -570,7 +570,7 @@ if (GameAnalytics.isPromotionAvailable() == true) {
 }
 ```
 
-3. 프로모션 실행
+### 프로모션 실행
 프로모션 버튼을 터치하는 경우 “launchPromotionPage()”를 호출하여 프로모션을 실행합니다.
 
 ```
@@ -594,7 +594,7 @@ private void touchPromotionButton() {
 또한 앱 설치/실행시 광고 효과 측정을 위해서 Install Receiver를 등록해야 합니다.
 Install Receiver는 프로모션을 통해 앱을 설치한 경우(Google Play만 가능) 효과 측정을 위해 필요합니다. Execution Receiver는 앱이 설치되어 있는 경우 프로모션을 통해 실행 효과 측정을 위해 필요합니다. “2.2.2. AndroidManifest 설정”을 참고하세요.
 
-4. 보상
+### 보상
 사용자에게 프로모션 페이지가 노출된 경우 보상을 지급합니다. 또한 프로모션을 통해 앱을 설치하거나 정해진 미션을 달성한 경우에도 보상을 지급합니다.
 보상에 대한 정보는 “CampaignListener”의 “onMissionComplete”를 통해서 전달 됩니다.
 보상 처리 절차는 “프로모션 적용및 운영 가이드”문서를 참고하세요.
@@ -618,7 +618,7 @@ private void onLoadCompleted() {
 
 # SDK 설정
 
-1. 디버그 모드 활성화
+## 디버그 모드 활성화
 개발중에 SDK 로그 확인을 위해서 로그 출력 여부를 설정할 수 있습니다.
 이 함수는 initializeSDK 이전/이후 모두 호출 가능합니다. 기본 값은 setDebugMode(false)입니다.
 Log tags는 “Analytics:”로 시작합니다. Eclipse에서 log cat filter를 “Analytics”로 지정하면 SDK에서 발생하는 로그를 확인할 수 있습니다.)
@@ -645,7 +645,7 @@ Android : server response (***) : 200 OK
 ```
 
 
-2. 디바이스 정보 확인
+## 디바이스 정보 확인
 SDK에서 수집하는 Device 정보를 확인할 수 있습니다.
 현재 확인 가능한 값은 Device ID, Push Token, Campaign User ID입니다. 이 값들은 캠페인 연동 테스트시 필요합니다. 자세한 내용은 “캠페인 연동 가이드”를 참고하세요.
 Device 정보를 확인하기 위해 사용하는 Key 값입니다.
@@ -662,7 +662,7 @@ private void printDeviceInfo() {
 }
 ```
 
-3. SDK 버전 확인
+## SDK 버전 확인
 SDK 버전은 &lduo;getVersion()” 함수를 통해 확인할 수 있습니다.
 
 ```

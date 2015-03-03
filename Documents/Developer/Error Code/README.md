@@ -1,5 +1,5 @@
 Return Value | 값 | 설명
-- | - | - |
+--- | --- | --- |
 S_SUCCESS | 0x0000 | 성공
 W_ALREADY_INITIALIZED | 0x1000 | SDK가 이미 초기화됨.
 E_NOT_INITIALIZED | 0x8000 | SDK가 초기화 되지 않은 상태에서 api 가 호출됨.

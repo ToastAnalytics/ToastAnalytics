@@ -52,11 +52,11 @@ Unity3D의 Menu에서 Assets > Import Package > Custom Package를 선택하여 �
 [그림 3 Game Object 생성]
 
 #### 4. SDK 사용하기
-이후 게임에서 적절한 시점에 액션 추적 API를 호출하면 됩니다.
+이후 게임에서 적절한 시점에 액션 추적 API를 호출하면 됩니다.<br />
 액션 추적 API는 GameAnalytics.cs에 정의되어 있습니다.
 
 #### 5. OS 추가 설정
-OS(Android, iOS)별로 프로젝트 설정 및 Manifest에 추가로 설정해야 하는 항목들이 있습니다.
+OS(Android, iOS)별로 프로젝트 설정 및 Manifest에 추가로 설정해야 하는 항목들이 있습니다.<br / >
 자세한 내용은 각 OS별로 제공되는 Programming Guide의 프로젝트 설정 항목을 참고하세요.
 
 
@@ -119,7 +119,8 @@ Analytics는 사용자를 구분하는 기준으로 Advertise ID 또는 User ID�
 예를들어 Advertise ID를 사용하는 경우 하나의 디바이스에서 탈퇴->재가입 하는 경우에도 기존과 동일한 사용자로 집계됩니다. 반면 User ID를 사용하는 경우에는 신규 사용자로 집계됩니다.<br />
 또는 한명의 사용자가 두개의 디바이스를 사용하는 경우 Advertise ID를 사용하면 각각 다른 사용자로 집계되는 반면 User ID를 사용하는 경우 한명의 사용자로 집계됩니다.<br />
 이런 부분을 고려하여 게임에서 기준을 결정하여 사용합니다.<br />
-초기화 함수(initializeSDK)의 마지막 인자(use logging userid flag)로 이 값을 설정할 수 있습니다. Flag가 true 인 경우 User ID를 사용자 구분 기준으로 사용합니다. False로 설정하면 Advertise ID를 구분 기준으로 사용합니다.<br />
+초기화 함수(initializeSDK)의 마지막 인자(use logging userid flag)로 이 값을 설정할 수 있습니다. Flag가 true 인 경우 User ID를 사용자 구분 기준으로 사용합니다. False로 설정하면 Advertise ID를 구분 기준으로 사용합니다.
+
 아래 코드는 User ID를 사용자 구분 기준으로 사용하는 경우입니다.
 ```
 using UnityEngine;
@@ -157,6 +158,7 @@ setUserId의 두번째 인자는 Promotion이나 Campaign을 사용하는 경우
 setUserId 함수는 initializeSDK 호출 이후에 게임에서 로그인 성공한 후 게임에서 사용하는 userID를 획득한 직후에 호출하면 됩니다. userID는 게임에서 사용자를 구분하기 위해 사용하는 값을 사용하면 됩니다.
 
 Advertise ID 관련 내용은 아래 링크를 참고하세요.
+
 -Android : <https://developer.android.com/google/play-services/id.html>
 -iOS : <https://developer.apple.com/LIBRARY/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/>
 
@@ -188,7 +190,7 @@ In-App Purchase, 머니 획득/사용, 레벨업, 친구 수 변경등 사용자
 
 #### 1. In-App Purchase
 In-App Purchase가 발생한 후 tracePurchase를 호출하여 매출 정보를 전송합니다.<br />
-Currency는 ISO-4217(http://en.wikipedia.org/wiki/ISO_4217)에서 정의한 코드를 사용합니다.<br />
+Currency는 ISO-4217(<http://en.wikipedia.org/wiki/ISO_4217>)에서 정의한 코드를 사용합니다.<br />
 $0.99의 보석을 구매하는 경우 아래와 같이 사용합니다.<br />
 (여기에서 “GEM_10”은 게임에서 정의한 Item의 Code입니다. Unit Cost는 해당 아이템의 단위 가격, Payment는 실제 사용자가 사용한 금액입니다. Level은 구매한 사용자의 Level을 입력합니다.)
 ```
@@ -219,7 +221,9 @@ GameAnalytics.traceMoneyAcquisition("CODE_BUY_CHERRY", "1", 100, 10);
 사용자 레벨이 10으로 변경되는 경우 아래와 같이 호출합니다. 한 사용자의 레벨은 반드시 증가해야만 합니다. 감소하는 경우 정확한 데이터 측정이 불가능합니다.<br />
 예를들어 “Candy Crush Sage”와 같이 스테이지로 진행 되는 게임에서 스테이지를 레벨로 사용하는 경우에는 해당 스테이지에 최초 진입할때만 레벨업 로그를 남겨야 합니다. 만약 이전 스테이지로 다시 돌아가서 플레이 하는 경우에는 레벨업 로그를 남기지 않습니다.<br />
 또한 다른 API에 전달되는 level 값도 현재 진행중인 스테이지가 아닌 사용자의 최고 스테이지를 레벨 값으로 사용해야 합니다.
+```
 GameAnalytics.traceLevelUp(10);
+```
 	
 #### 4. 친구
 사용자의 친구 숫자를 등록합니다. 일반적으로 앱 실행 후 친구 정보 로딩이 완료된 시점에 호출하면 됩니다.
@@ -349,6 +353,7 @@ GameAnalytics.traceEvent("STAGE", "STAGE_BOSS_VICTORY", "DRAGON_VALLEY", "BOSS_M
 이 외에도 다양한 용도로 게임에 특화된 이벤트 추적에 사용할 수 있습니다.
 
 traceEvent에 사용하는 String Type 파라미터(event type, event code, param1, param2)는 각각 50byte까지 사용할 수 있습니다. 그리고 event 하위에 발생 가능한 param1 은 300개까지, 또 param1 하위에 발생 가능한 param2는 200개까지 사용할 수 있습니다.
+
 자세한 내용은 Toast Analytics 사이트에서 가이드를 참고하세요. (커스텀 이벤트 페이지 우측 상단의 “페이지 가이드”를 클릭하면 다운받을 수 있습니다)
 
 

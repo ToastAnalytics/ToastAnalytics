@@ -1,21 +1,24 @@
 # TOAST Cloud 소개
+
 NHN 엔터테인먼트에서 제공하는 클라우드 서비스입니다.
 
-누구나 쉽게 개발할 수 있는 서비스를 제공하는 퍼블릭 클라우드
-개발에만 전념할 수 있도록 인프라에서 플랫폼까지 다양한 솔루션 제공
-웹 브라우저 상에서 인프라에서 플랫폼까지 모두 관리할 수 있는 콘솔 제공
-합리적 비용으로 사업화에 기여
+- 누구나 쉽게 개발할 수 있는 서비스를 제공하는 퍼블릭 클라우드
+- 개발에만 전념할 수 있도록 인프라에서 플랫폼까지 다양한 솔루션 제공
+- 웹 브라우저 상에서 인프라에서 플랫폼까지 모두 관리할 수 있는 콘솔 제공
+- 합리적 비용으로 사업화에 기여
 
 #서비스 구성
-인프라, 개발, 테스트, 운영과 기술지원, 사업화에 필요한 다양한 서비스를 제공합니다.
-TOAST Cloud 서비스 정보
-서비스	설명
-Infrastructure Service	OpenStack 기반 On-Demand 인프라 서비스
-Analytics Service	앱 데이터 분석 운영 플랫폼
-Game Service	게임 개발 지원
-Common Service	개발/테스트/서비스에 필요한 공통 도구
 
-1. Infrastructure Service
+인프라, 개발, 테스트, 운영과 기술지원, 사업화에 필요한 다양한 서비스를 제공합니다.
+
+|서비스|설명|
+|---|---|
+|Infrastructure Service|OpenStack 기반 On-Demand 인프라 서비스|
+|Analytics Service|앱 데이터 분석 운영 플랫폼|
+|Game Service|게임 개발 지원|
+|Common Service|개발/테스트/서비스에 필요한 공통 도구|
+
+## 1. Infrastructure Service
 클라우드 인프라를 통해 저렴한 비용으로 인프라 리소스를 필요한 만큼 사용할 수 있습니다.
 Infrastructure 서비스 정보
 Compute	

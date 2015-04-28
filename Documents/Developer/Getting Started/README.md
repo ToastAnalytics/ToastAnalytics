@@ -8,6 +8,7 @@ Analytics가 제공하는 분석데이터와 캠페인관리 서비스를 이용
 Analytics SDK는 앱 이용자 로그를 수집하고, Analytics 웹에서 설정하는 캠페인을 앱에 노출될 수 있도록 합니다. Analytics 분석/프로모션 시스템은 SDK로부터 로그를 수집/분석하고, 게임서버 등과 통신하여 캠페인이 진행되도록 합니다.
 
 ![그림 1 서비스구조도](images/an_1.gif)
+
 [그림 1 서비스구조도]
 
 Analytics는 TOAST Cloud 웹 콘솔에서 시작하시거나, 바로 Analytics 사이트에서 시작하실 수 있습니다. Analytics 만을 사용하는 이용자는 Analytics 사이트 (<http://analytics.toast.com>) 에서, TOAST Cloud 상품을 이용하는 이용자는 TOAST Cloud 웹콘솔(<http://console.cloud.toast.com>)에서 바로 시작하실 수 있습니다. <br />
@@ -22,6 +23,7 @@ Analytics는 TOAST Cloud 웹 콘솔에서 시작하시거나, 바로 Analytics �
 처음 Analytics에 로그인하시면 앱등록을 하거나, 기존에 있던 앱에 조인신청을 하거나 Analytics에서 제공하는 기능들을 살펴보실 수 있습니다. 이미 컴퍼니나 앱에 소속되어 있는 경우라면 아래의 안내 화면은 노출되지 않습니다.
 
 ![그림 2 Anlaytics 이용안내](images/an_2.jpg)
+
 [그림 2 Anlaytics 이용안내]
 
 1. 앱 등록
@@ -41,6 +43,7 @@ Analytics는 개별 앱의 데이터를 분석하여 볼 수 있을 뿐 아니�
 혹시 만들려는 컴퍼니가 이미 Analytics에 생성되어 있지 않은지 먼저 컴퍼니명을 검색하여 확인해보세요.
 
 ![그림 3 컴퍼니 검색화면](images/an_3.jpg)
+
 [그림 4 컴퍼니 검색화면]
 
 검색한 컴퍼니명으로 등록된 컴퍼니가 있다면 다음과 같이 검색리스트가 노출됩니다. 이 중 구성원이 되고 싶은 컴퍼니를 선택 후 [신청하기] 버튼을 눌러주세요.

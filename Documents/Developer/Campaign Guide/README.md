@@ -68,11 +68,17 @@ Campaign 시스템의 동작 흐름은 아래 그림2와 같습니다.
 캠페인 기능을 사용하기 위해서는 초기화 함수를 반드시 호출해주어야 합니다.
 ```
 GameAnalytics.initializeSdk(getActivity(), appId, entId, appVer,  useLoggingUserId); 
-```캠페인 정보 요청 전에 Campaign Listener를 등록합니다.
+```
+
+캠페인 정보 요청 전에 Campaign Listener를 등록합니다.
+```
 GameAnalytics.setCampaignListener(campaignListener); 
+```
+
 Listener에서는 아래의 Callback을 제공합니다.
-onCampaignVisibilityChanged : 캠페인 및 보상 관련 팝업/배너가 화면에 보이거나 사라질 때 호출됩니다.
-onCampaignLoadSuccess, onCampaignLoadFail : 캠페인 서버에서 가져 온 캠페인 정보 파싱 결과를 알려줍니다. 게임에서는 이 Callback에서 특별한 처리를 할 필요는 없습니다. 로그 확인을 위해 제공하는 Callback입니다.
+#####onCampaignVisibilityChanged : 캠페인 및 보상 관련 팝업/배너가 화면에 보이거나 사라질 때 호출됩니다.
+#####onCampaignLoadSuccess, onCampaignLoadFail : 캠페인 서버에서 가져 온 캠페인 정보 파싱 결과를 알려줍니다. 게임에서는 이 Callback에서 특별한 처리를 할 필요는 없습니다. 로그 확인을 위해 제공하는 Callback입니다.
+```
 private CampaignListener campaignListener = new CampaignListener() {
 @Override
 public void onCampaignVisibilityChanged(String adSpaceName, boolean show) { ... }
@@ -81,18 +87,24 @@ public void onCampaignLoadSuccess(String adSpaceName) { ... }
 @Override
 public void onCampaignLoadFail(String adSpaceName, CampaignException exception) { ... }
 }; </string>
+```
 ###2. 사용자 ID등록
 캠페인 진행 및 보상 처리를 위해서는 사용자 식별이 꼭 필요하며, 캠페인은 사용자 ID를 식별 값으로 이용합니다. 따라서 캠페인 기능을 사용하기 위해서는 사용자 ID 설정 함수를 반드시 호출해 주어야 합니다.
 또한 이때 사용된 사용자 ID 값은 게임 서버에서 미션 달성 시 호출하는 API를 호출할 때 보내는 사용자 ID와 같은 값이어야 합니다.
 사용자 ID는 사용자를 구분할 수 있는 유니크한 값이어야 하며 50Byte 이하의 문자열로 입력되어야 합니다.
- GameAnalytics.setUserId(userId,true); 
+``` 
+GameAnalytics.setUserId(userId,true); 
+```
 ###3. 캠페인 노출
 onCampaignLoadSuccess 이후 캠페인을 노출시키고자 하는 지점에서 캠페인 노출 함수를 호출하고, 일정시간 사용자에게 노출한 이후 화면에서 제거하는 함수를 호출하여 캠페인 팝업/배너를 제거합니다.
 아래와 같은 형태의 API를 제공합니다.
+```
 showCampaign(String adspaceName, Activity parent);
 showCampaign(String adspaceName, Activity parent, int animation, int lifeTime);
 hideCampaign(String adspaceName);
 hideCampaign(String adspaceName, int animation);
+```
+
 ###4. 보상정보 처리
 캠페인이 미션/보상 정보를 포함한 경우, 게임서버는 사용자가 미션과 관련된 액션을 수행할 때마다 캠페인 서버에 미션 달성여부를 체크하게 되고 미션 달성이 확인되었다면 보상정보를 게임클라이언트로 전달하게 됩니다. 이 부분은 게임서버와 게임클라이언트 간의 프로토콜이기 문에 게임에서 자체적으로 처리해주시면 됩니다.
 
@@ -101,6 +113,7 @@ Analytics SDK에서 캠페인을 위해서 GCM을 사용합니다. GCM 사용을
 GCM에 관련된 전반적인 내용은 Google에서 제공하는 Google Cloud Message 문서를 참고하세요.
 Analytics 관리자 페이지에 정보를 등록하는 방법은 “Getting Started” 문서에서 “푸쉬 설정” 항목을 참고하세요.
 SDK에 SenderID는 “setGcmSenderId” API를 동해 등록할 수 있습니다.
+```
  import com.nhnent.android.toast.analytics.GameAnalytics;
 public class TestActivty extends Activity {
 @Override
@@ -115,8 +128,11 @@ if(result != GameAnalytics.S_SUCCESS)
 GameAnalytics.setGcmSenderId(“123456789012”);
 ……
 } 
+```
+
 GCM 사용을 위해서는 AndroidManifest.xml 파일에 추가로 permission과 reciever를 등록해야 합니다.
 추가로 필요한 permission은 아래와 같습니다. (여기에서 “APP.PACKAGE.NAME”은 사용자의 패키지명으로 변경해야 합니다.)
+```
 <!--  gcm 푸쉬 권한 설정 -->
 <uses-permission android:name="android.permission.GET_ACCOUNTS"></uses-permission>
 <uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
@@ -124,7 +140,10 @@ GCM 사용을 위해서는 AndroidManifest.xml 파일에 추가로 permission과
 <uses-permission android:name="android.permission.VIBRATE"></uses-permission>
 <permission android:name="APP.PACKAGE.NAME.permission.C2D_MESSAGE" android:protectionLevel="signature"></permission>
 <uses-permission android:name="APP.PACKAGE.NAME.permission.C2D_MESSAGE"></uses-permission>
+```
+
 추가로 등록해야 하는 Receiver는 아래와 같습니다. (역시 “APP.PACKAGE.NAME”은 사용자의 패키지명으로 변경해야 합니다.)
+```
 <manifest>
 ……
 <application>
@@ -140,8 +159,11 @@ GCM 사용을 위해서는 AndroidManifest.xml 파일에 추가로 permission과
 ……        
 </application>
 </manifest>
+```
+
 서버에서 푸쉬(GCM) 메시지를 받으면 Analytics SDK는 Notification Bar에 알림을 표시합니다. 이 알림을 터치하면 앱을 실햅합니다. 
 이때 아무런 설정을 하지 않으면 해당 앱의 Main Activity를 띄웁니다. Main Activity가 아닌 다른 Activity를 실행하기 위해서는 “setPushIntent”함수를 통해서 명시적으로 지정해야 합니다.
+```
 import com.nhnent.android.toast.analytics.GameAnalytics;
 public class TestActivty extends Activity {
 @Override
@@ -159,8 +181,11 @@ Intent intent = new Intent(getApplicationContext(), GCMActivity.class);
 GameAnalytics.setPushIntent(intent);
 ……
 } 
+```
+
 덧붙여 AndroidManifest.xml에 있는 Activity android:launchMode를 singeTop, singleTask, singleInstance로 설정하는 경우 새로운 Activity를 만들지 않고 기존 것을 재사용 합니다.
 이때 Push에 대한 정보가 담긴 Intent 정보를 제대로 전달받기 위해서는 해당 Activity에서 “onNewIntent”를 명시적으로 Override 하여야 합니다.
+```
 public class NEAFlatSampleActivity extends Activity {
 @Override
 protected void onNewIntent(Intent intent)
@@ -169,8 +194,11 @@ super.onNewIntent(intent);
 setIntent(intent);
 }
 } 
+```
+
 SDK 에서 기본으로 제공하는 GCM 푸쉬 리시버를 사용하지 않고, 사용자가 직접 구현하는 경우 Manifest의 설정은 아래와 같이 변경되어야 합니다.
 또한 GCM 푸쉬를 받아 처리하는 로직(리시버, 서비스, Notification) 또한 사용자가 직접 구현해야 합니다.
+```
 <manifest>
 ……
 <application>
@@ -195,12 +223,15 @@ SDK 에서 기본으로 제공하는 GCM 푸쉬 리시버를 사용하지 않고
 ……
 </application>
 </manifest>
+```
+
 위에서 보이는 것처럼 SDK 용으로 설정된 리시버, 서비스 설정 아래에 사용자 정의 설정을 신규로 추가하도록 합니다.
 푸쉬 payload 구성시 “cid” 필드는 사용자 정의 푸쉬에서 사용해서는 안됩니다. “cid” 필드는 SDK 에서 제공하는 기본 푸쉬에서 내부적으로 사용하는 태그로 캠페인 정보를 전달하기 위해 사용하고 있습니다.
 
 ###6. Devide Id와 Push Token 확인
 본 매뉴얼의 [적용 따라하기 (게임운영자)] > [환경설정] > [캠페인 설정] > [테스트 디바이스 설정] 부분을 진행하기 위해서는 테스트 단말기의 Device ID 와 Push Token 정보가 필요합니다. 
 Toast Analytics SDK 에서는 Device ID와 Push Token을 확인을 위해서 각 플랫폼 별로 API를 제공합니다. 이 API는 initializeSDK 이후에 호출해야 합니다.
+```
 Android
 public static String DEVICE_INFO_DEVICEID = "deviceId";
 public static String DEVICE_INFO_TOKEN = "token";         
@@ -221,7 +252,10 @@ Cocos2d-x
 #define DEVICE_INFO_TOKEN_STR ("token")
 #define DEVICE_INFO_CAMPAIGN_USERID_STR ("campaignUserId")
 std::string getDeviceInfo(std::string key) 
+```
+
 아래는 Android 에서 Device ID 와 Push Token 출력을 위한 코드입니다.
+```
 // Device ID를 가져옵니다.
 String deviceId = GameAnalytics.getDeviceInfo(GameAnalytics.DEVICE_INFO_DEVICEID);
 // Push Token을 가져옵니다.
@@ -229,6 +263,8 @@ String pushToken = GameAnalytics.getDeviceInfo(GameAnalytics.DEVICE_INFO_TOKEN);
 // 가져온 Device ID 와 Push Token 을 Logcat 콘솔에 출력합니다.
 Log.d(“Sample”, “Device ID : “ + deviceId);
 Log.d(“Sample”, “Push Token : “ + pushToken); 
+```
+
 로그 확인을 위해서 Android는 로그캣을, iOS는 iPhone Configurator를 이용하면 됩니다.
 
 [그림 3 콘솔 로그에 출력된 디바이스 ID와 푸쉬토큰]
@@ -250,7 +286,8 @@ Device ID 와 Push Token 출력 코드는 테스트 시에만 사용할 것을 �
 게임서버가 호출해야 하는 미션 달성 알림 API의 포맷은 아래와 같습니다.
 
 ###3. 요청 예시
- Host: https://api-campaign-analytics.cloud.toast.com
+```
+Host: https://api-campaign-analytics.cloud.toast.com
 POST /campaign/v1/server/check-mission
 Content-Type: application/json
 {
@@ -263,18 +300,23 @@ Content-Type: application/json
 "missionKey" : "LEVEL",
 "missionValue" : 10
 } 
+```
+
 ###4. 요청 파라미터
 요청 파라미터
-이름	자료형	설명
-transactionId	int64	요청에 대한 추적을 위해 로깅 시에 사용되며 필수 값은 아닙니다. 여기에 입력된 값은 응답 데이터의 transactionId 필드에 동일하게 설정되어 반환됩니다
-userId	string	게임에서 제공하는 사용자 unique ID
-appId	string	
+|이름|자료형|설명|
+|---|---|---|
+|transactionId|	int64|	요청에 대한 추적을 위해 로깅 시에 사용되며 필수 값은 아닙니다. 여기에 입력된 값은 응답 데이터의 transactionId 필드에 동일하게 설정되어 반환됩니다|
+|userId|	string|	게임에서 제공하는 사용자 unique ID|
+|appId|	string|	
 앱 등록 시 할당받은 앱 번호. 
-Analytics 사이트의 [앱설정] > [AppKey]값을 입력하시면됩니다.
-missionKey	string	특정 행동을 정의하는 Key 값 혹은 onMissionComplete(SDK) 를 통해 전달받은 값
-Analytics 사이트의 [앱설정] > [캠페인 설정]> [미션 및 보상 아이템 설정]에서 등록한 미션 key 값
-missionValue	int64	missionKey 에 대한 Value 값
+Analytics 사이트의 [앱설정] > [AppKey]값을 입력하시면됩니다.|
+|missionKey|	string|	특정 행동을 정의하는 Key 값 혹은 onMissionComplete(SDK) 를 통해 전달받은 값
+Analytics 사이트의 [앱설정] > [캠페인 설정]> [미션 및 보상 아이템 설정]에서 등록한 미션 key 값|
+|missionValue|	int64|	missionKey 에 대한 Value 값|
+
 ###5. 응답 예시
+```
 HTTP/1.1 200 OK
 {
 "header" :
@@ -298,21 +340,25 @@ HTTP/1.1 200 OK
 ...
 ]
 }
+```
+
 ###6. 응답 데이터
 응답 데이터
-이름	자료형	설명
-transactionId	int64	요청 시 전달받은 transactionId 를 동일하게 설정한다
-isSuccessful	string	수행 성공 여부를 설정한다. (성공: "true", 실패: "false")
-resultCode	int	리턴 코드를 작성한다. (성공인 경우 0)
-resultMessages	vector<string>	복수 개의 리턴 메시지를 작성한다.
-serviceCode	int	서비스 코드
-campaignId	int	보상이 있는 캠페인 번호
-promoDateBegin	string	캠페인 시작 시간 (UTC+0 기준)
-promoDateEnd	string	캠페인 종료 시간 (UTC+0 기준)
-rewardDateBegin	string	보상 시작 시간 (UTC+0 기준)
-rewardDateEnd	string	보상 종료 시간 (UTC+0 기준)
-rewardCode	string	보상 코드
-rewardValue	int	보상 값
+|이름|자료형|설명|
+|---|---|---|
+|transactionId	|int64|	요청 시 전달받은 transactionId 를 동일하게 설정한다|
+|isSuccessful	|string|	수행 성공 여부를 설정한다. (성공: "true", 실패: "false")|
+|resultCode	|int|	리턴 코드를 작성한다. (성공인 경우 0)|
+|resultMessages	|vector<string>|	복수 개의 리턴 메시지를 작성한다.|
+|serviceCode	|int|	서비스 코드|
+|campaignId	|int|	보상이 있는 캠페인 번호|
+|promoDateBegin	|string|	캠페인 시작 시간 (UTC+0 기준)|
+|promoDateEnd	|string|	캠페인 종료 시간 (UTC+0 기준)|
+|rewardDateBegin	|string|	보상 시작 시간 (UTC+0 기준)|
+|rewardDateEnd	|string|	보상 종료 시간 (UTC+0 기준)|
+|rewardCode	|string|	보상 코드|
+|rewardValue	|int|	보상 값|
+
 #캠페인 환경설정
 
 ##환경설정: 캠페인 실행 전 설정하기
@@ -362,7 +408,10 @@ rewardValue	int	보상 값
 [그림 11 테스트 디바이스 설정 페이지]
 사용하실 디바이스ID와 GCM 혹은 APNS에서 발급받은 토큰 정보를 테스트 디바이스 등록팝업에서 OS별로 입력합니다.
 Toast Analytics SDK의 initializeSdk API 호출 시 useLoggingUserId 값을 true 로 설정한 경우에는 ‘디바이스ID’ 입력 란에 사용자 ID를 입력하여야 합니다.
+```
 int result = initializeSdk(context,  appId, companyId, appVersion, true);
+```
+
 Toast Analytics SDK 설치된 앱을 통해 Device ID 와 Device Token 을 전달받아 입력합니다.
 본 매뉴얼의 [게임 클라이언트 적용] > [게임 클라이언트] > [Device ID 와 Push Token 확인] 부분을 참고하시기 바랍니다.
 

@@ -1,7 +1,7 @@
 
 # FAQ
 
-1. initializeSdk에서 useLoggingUserId는 어떤 역할을 하나요?
+## initializeSdk에서 useLoggingUserId는 어떤 역할을 하나요?
 
 Analytics에서 통계를 작성하기 위해서는 사용자를 구분하여 추적합니다. 이때 사용자를 구분하는 기준을 게임에서 지정할지 Analytics 내부에서 값을 생성(현재는 Android는 ADID, iOS는 IDFA를 사용합니다.)하여 사용할지를 결정하는 flag 입니다.
 
@@ -12,7 +12,9 @@ flag를 true로 설정하면 게임에서 SDK로 제공하는 UserID를 기준�
 
 각각의 장단점이 있기 때문에 게임의 상황에 따라 결정하여 사용하면 됩니다. 단 게임 출시 이후에 flag 설정을 변경하게 되면 통계 기준이 바뀌게 되어 변경 전/후 사용자 연결이 끊어지게 됩니다. 
 
-2. setUserId는 언제 호출하나요?
+
+## setUserId는 언제 호출하나요?
+
 setUserId는 SDK에 사용자 정보를 제공하는 API입니다.
 
 SDK에서는 사용자 정보를 통계 작성용과 Campaign/Promotion용 두가지로 사용합니다.

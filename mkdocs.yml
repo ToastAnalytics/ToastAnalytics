@@ -4,19 +4,19 @@ theme: readthedocs
 docs_dir: docs
 site_dir: docs
 pages:
-- ['index.md', '소개', 'Welcome to Toast Analytics']
+- ['index.md', 'Introduction', 'Welcome to Toast Analytics']
 
-- ['Developer/1. Getting Started.md', '운영 가이드', '시작하기']
-- ['Developer/2. Campaign Guide.md', '운영 가이드', '캠페인 가이드']
-- ['Developer/3. Promotion Guide.md', '운영 가이드', 'PROMOTION 가이드']
+- ['Developer/1. Getting Started.md', 'Service Guide', 'Getting Started']
+- ['Developer/2. Campaign Guide.md', 'Service Guide', 'Campaign Guide']
+- ['Developer/3. Promotion Guide.md', 'Service Guide', 'Promotion Guide']
 
-- ['Developer/4. Android Developer Guide.md', '개발자 가이드', 'Android 개발자 가이드']
-- ['Developer/5. iOS Developer Guide.md', '개발자 가이드', 'iOS 개발자 가이드']
-- ['Developer/6. Unity Developer Guide.md', '개발자 가이드', 'Unity 개발자 가이드']
-- ['Developer/7. Campaign Developer Guide.md', '개발자 가이드', '캠페인 개발자 가이드']
-- ['Developer/8. Promotion Developer Guide.md', '개발자 가이드', 'PROMOTION 개발자 가이드']
-- ['Developer/9. Error Code.md', '개발자 가이드', 'API 반환값']
-- ['Developer/10. Release Notes.md', '개발자 가이드', '릴리즈노트']
+- ['Developer/4. Android Developer Guide.md', 'Developer Guide', 'Android Developer Guide']
+- ['Developer/5. iOS Developer Guide.md', 'Developer Guide', 'iOS Developer Guide']
+- ['Developer/6. Unity Developer Guide.md', 'Developer Guide', 'Unity Developer Guide']
+- ['Developer/7. Campaign Developer Guide.md', 'Developer Guide', 'Campaign Developer Guide']
+- ['Developer/8. Promotion Developer Guide.md', 'Developer Guide', 'Promotion Developer Guide']
+- ['Developer/9. Error Code.md', 'Developer Guide', 'API Return Code']
+- ['Developer/10. Release Notes.md', 'Developer Guide', 'Release Notes']
 
 - ['FAQ/FAQ.md', 'FAQ', 'FAQ']
 

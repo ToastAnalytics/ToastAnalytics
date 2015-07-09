@@ -6,9 +6,9 @@ site_dir: docs
 pages:
 - ['index.md', 'Introduction', 'Welcome to Toast Analytics']
 
-- ['Developer/1. Getting Started.md', 'Service Guide', 'Getting Started']
-- ['Developer/2. Campaign Guide.md', 'Service Guide', 'Campaign Guide']
-- ['Developer/3. Promotion Guide.md', 'Service Guide', 'Promotion Guide']
+- ['Developer/1. Getting Started.md', 'Operator Guide', 'Getting Started']
+- ['Developer/2. Campaign Guide.md', 'Operator Guide', 'Campaign Guide']
+- ['Developer/3. Promotion Guide.md', 'Operator Guide', 'Promotion Guide']
 
 - ['Developer/4. Android Developer Guide.md', 'Developer Guide', 'Android Developer Guide']
 - ['Developer/5. iOS Developer Guide.md', 'Developer Guide', 'iOS Developer Guide']

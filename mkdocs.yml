@@ -16,7 +16,7 @@ pages:
 - ['Developer/7. Campaign Developer Guide.md', 'Developer Guide', 'Campaign']
 - ['Developer/8. Promotion Developer Guide.md', 'Developer Guide', 'Promotion']
 - ['Developer/9. Error Code.md', 'Developer Guide', 'API Return Code']
-- ['Developer/10. Release Notes.md', 'Developer Guide', 'Release Notes']
+- ['Developer/10. Release Notes.md','Release Notes']
 
 - ['FAQ/FAQ.md', 'FAQ', 'FAQ']
 

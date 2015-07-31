@@ -6,6 +6,7 @@ Toast Analytics 개발 가이드와 [적용 Tip](https://github.com/ToastAnalyti
 - Getting Started
 - Campaign 
 - Promotion 
+- Marketing(Comming Soon)
 
 ## Developer Guide
 - Android 

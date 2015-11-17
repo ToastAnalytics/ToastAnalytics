@@ -1,16 +1,14 @@
 
-# FAQ
+# 시작하기
 
-## initializeSdk에서 useLoggingUserId는 어떤 역할을 하나요?
+## 공통
 
-Analytics에서 통계를 작성하기 위해서는 사용자를 구분하여 추적합니다. 이때 사용자를 구분하는 기준을 게임에서 지정할지 Analytics 내부에서 값을 생성(현재는 Android는 ADID, iOS는 IDFA를 사용합니다.)하여 사용할지를 결정하는 flag 입니다.
+### SDK에서 수집하는 개인정보가 있나요? 
 
-flag를 true로 설정하면 게임에서 SDK로 제공하는 UserID를 기준으로 사용자를 구분합니다. 그렇기 때문에 반드시 setUserId API를 통해서 SDK에게 User ID를 알려주어야 합니다. 반면 flag를 false로 설정하면 setUserId를 호출할 필요가 없습니다. (단 Campaign이나 Promotion을 사용하는 경우에는 flag를 false로 설정 하더라도 setUserId를 호출해야 합니다. 이때 setUserId를 통해 제공되는 사용자 정보는 통계에서 사용자 구분을 위한 값으로 사용되지 않고 Camapign, Promotion에서만 사용합니다.)
-
-예를들어 useLoggingUserId flag를 false로 설정한 경우(즉, Analytics SDK 내부에서 생성한 사용자 구분 정보를 사용하는 경우) 하나의 디바이스에서 게임 탈퇴->재가입 하는 경우에도 기존과 동일한 사용자로 집계됩니다. 반면 flag를 true로 설정한 경우(즉, 게임에서 사용자 구분 정보를 제공한 경우)에는 신규 사용자로 집계됩니다.
-반면 한명의 사용자가 두개의 디바이스를 사용하는 경우는 flag가 false인 게임의 경우 각각 다른 사용자로 집계되는 반면 true인 경우에는 동일한 사용자로 집계 됩니다.
-
-각각의 장단점이 있기 때문에 게임의 상황에 따라 결정하여 사용하면 됩니다. 단 게임 출시 이후에 flag 설정을 변경하게 되면 통계 기준이 바뀌게 되어 변경 전/후 사용자 연결이 끊어지게 됩니다. 
+SDK는 개인 식별이 가능한 정보는 수집하지 않습니다. 다만 통계를 위해서 단말기 정보 일부를 수집하고 있습니다. 현재 수집하고 있는 정보는 아래와 같습니다.
+- iOS, Android 공통 : 단말 기종, 단말 제조사, 디바이스 해상도, 언어설정, Carrier(이통사), Time Zone, OS Version, App Version 
+- OS : Language, Device Vendor ID, Device Token(APNS), Wifi MAC Address(수집 가능한 경우), IDFA 
+- Android : Android Device ID, Registration ID(GCM), 광고 ID, WiFi MAC Address (권한이 있는 경우만) 
 
 
 ## setUserId는 언제 호출하나요?

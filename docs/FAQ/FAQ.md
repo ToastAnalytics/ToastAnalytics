@@ -1,6 +1,3 @@
-# [Toast Analytics & Promotion FAQ]
-***
-
 ## 시작하기
 #### 공통
 ##### 1.SDK에서 수집하는 개인정보가 있나요?

@@ -3,7 +3,13 @@
 
 ## 시작하기
 ### 공통
-* SDK에서 수집하는 개인정보가 있나요?
+ * SDK에서 수집하는 개인정보가 있나요?
+ 
+SDK는 개인 식별이 가능한 정보는 수집하지 않습니다. 다만 통계를 위해서 단말기 정보 일부를 수집하고 있습니다. 현재 수집하고 있는 정보는 아래와 같습니다.
+- iOS, Android 공통 : 단말 기종, 단말 제조사, 디바이스 해상도, 언어설정, Carrier(이통사), Time Zone, OS Version, App Version 
+- OS : Language, Device Vendor ID, Device Token(APNS), Wifi MAC Address(수집 가능한 경우), IDFA 
+- Android : Android Device ID, Registration ID(GCM), 광고 ID, WiFi MAC Address (권한이 있는 경우만) 
+
 
 * [로그 데이터를 전송 중 앱이 종료되면 어떻게 되나요? ](Crash 발생시 조치방법)
 * [안드로이드의 경우 앱의 종료 시점을 명확히 알기 어려운데 앱의 종료 로그 수집에 문제 없나요?](API별 주요 Parameter 설명)

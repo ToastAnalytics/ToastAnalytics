@@ -25,10 +25,11 @@ pages:
 - ['FAQ/Getting started.md', 'FAQ', 'Getting started']   
 - ['FAQ/SDK.md', 'FAQ', 'SDK 적용']  
 
-#use_directory_urls: false
+extra_javascript: none
+use_directory_urls=false
 #strict: true
-markdown_extensions:
-    - smarty
-    - toc:
-        permalink: True
-    - sane_lists
+#markdown_extensions:
+#    - smarty
+#    - toc:
+#        permalink: True
+#    - sane_lists

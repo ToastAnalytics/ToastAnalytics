@@ -1,5 +1,8 @@
 site_name: ToastAnalytics Guide
+site_url: http://toastanalytics.readthedocs.org
 theme: readthedocs
+
+repo_url: https://github.com/ToastAnalytics/ToastAnalytics
 
 docs_dir: docs
 site_dir: docs
@@ -22,11 +25,7 @@ pages:
 - ['FAQ/Getting started.md', 'FAQ', 'Getting started']   
 - ['FAQ/SDK.md', 'FAQ', 'SDK 적용']  
 
-
-  
-
-
-
-
-
-
+markdown_extensions:
+    - toc:
+        permalink: 
+    - admonition:

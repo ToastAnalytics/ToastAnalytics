@@ -2,7 +2,7 @@ site_name: ToastAnalytics Guide
 theme: readthedocs
 
 docs_dir: docs
-site_dir: docs
+#site_dir: docs
 pages:
 - ['index.md', 'Introduction', 'Welcome to Toast Analytics']
 

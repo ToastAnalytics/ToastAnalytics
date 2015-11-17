@@ -25,4 +25,5 @@ pages:
 - ['FAQ/Getting started.md', 'FAQ', 'Getting started']   
 - ['FAQ/SDK.md', 'FAQ', 'SDK 적용']  
 
-use_directory_urls: false
+#use_directory_urls: false
+strict: true

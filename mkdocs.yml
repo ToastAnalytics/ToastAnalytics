@@ -25,7 +25,7 @@ repo_url: https://github.com/ToastAnalytics/ToastAnalytics
 #- ['FAQ/Getting started.md', 'FAQ', 'Getting started']   
 #- ['FAQ/SDK.md', 'FAQ', 'SDK 적용']  
 
-#markdown_extensions:
-#    - toc:
-#        permalink: 
-#    - admonition:
+markdown_extensions:
+    - toc:
+        permalink: 
+    - admonition:

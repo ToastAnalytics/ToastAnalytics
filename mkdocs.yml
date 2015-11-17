@@ -26,4 +26,9 @@ pages:
 - ['FAQ/SDK.md', 'FAQ', 'SDK 적용']  
 
 #use_directory_urls: false
-strict: true
+#strict: true
+markdown_extensions:
+    - smarty
+    - toc:
+        permalink: True
+    - sane_lists

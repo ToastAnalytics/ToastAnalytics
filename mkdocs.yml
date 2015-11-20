@@ -5,7 +5,7 @@ theme: readthedocs
 repo_url: https://github.com/ToastAnalytics/ToastAnalytics
 
 docs_dir: docs
-site_dir: site
+site_dir: docs
 pages:
 - ['index.md', 'Introduction', 'Welcome to Toast Analytics']
 
@@ -23,13 +23,6 @@ pages:
 - ['Developer/10. Release Notes.md', 'Developer Guide', 'Release Notes']
 
 - ['FAQ/Getting started.md', 'FAQ', 'Getting started']   
-- ['FAQ/SDK.md', 'FAQ', 'SDK 적용']  
+- ['FAQ/SDK.md', 'FAQ', 'SDK 적용1']  
 
-extra_javascript: none
-use_directory_urls=false
-#strict: true
-#markdown_extensions:
-#    - smarty
-#    - toc:
-#        permalink: True
-#    - sane_lists
+strict: true

@@ -6,6 +6,10 @@ repo_url: https://github.com/ToastAnalytics/ToastAnalytics
 
 docs_dir: docs
 site_dir: docs
+
+Type: Prefix Redirect
+From URL: None
+
 pages:
 - ['index.md', 'Introduction', 'Welcome to Toast Analytics']
 
@@ -23,4 +27,4 @@ pages:
 - ['Developer/10. Release Notes.md', 'Developer Guide', 'Release Notes']
 
 - ['FAQ/Getting started.md', 'FAQ', 'Getting started']   
-- ['FAQ/SDK.md', 'FAQ', 'SDK 적용']  
+- ['FAQ/SDK.md', 'FAQ', 'SDK 적용2']  

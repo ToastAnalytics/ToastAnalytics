@@ -1,14 +1,8 @@
 site_name: ToastAnalytics Guide
-site_url: http://toastanalytics.readthedocs.org
 theme: readthedocs
-
-repo_url: https://github.com/ToastAnalytics/ToastAnalytics
 
 docs_dir: docs
 site_dir: docs
-
-Type: Prefix Redirect
-From URL: /None/
 
 pages:
 - ['index.md', 'Introduction', 'Welcome to Toast Analytics']

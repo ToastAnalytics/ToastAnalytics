@@ -23,7 +23,9 @@ pages:
 - ['FAQ/Getting started.md', 'FAQ', 'Getting started']   
 - ['FAQ/SDK.md', 'FAQ', 'SDK 적용']  
 
-- ['Developer/11. UserGuide.md', 'UserGuide', '교육자료']  
+- ['Developer/10. Release Notes.md', 'Developer Guide', 'Release Notes']
+- ['Developer/11. UserGuide.md', 'UserGuide', '교육자료']
+
 
 
 

@@ -23,11 +23,11 @@ pages:
 - ['FAQ/Getting started.md', 'FAQ', 'Getting started']   
 - ['FAQ/SDK.md', 'FAQ', 'SDK 적용']
 
-- ['UserGuide/1. Guide_Getting Started.md', '사용자가이드', 'Getting started']
-- ['UserGuide/2. How to Analysis.md', '사용자가이드', '지표 분석 및 활용']
-- ['UserGuide/3. SDK.md', '사용자가이드', 'SDK적용 유의 사항']
-- ['UserGuide/4. In App Campaign.md', '사용자가이드', '인앱 캠페인']
-- ['UserGuide/5. Marketing Tracking.md', '사용자가이드', '마케팅 트랙킹']
+- ['UserGuide/1. Guide_Getting Started.md', '교육자료', 'Getting started']
+- ['UserGuide/2. How to Analysis.md', '교육자료', '지표 분석 및 활용']
+- ['UserGuide/3. SDK.md', '교육자료', 'SDK적용 유의 사항']
+- ['UserGuide/4. In App Campaign.md', '교육자료', '인앱 캠페인']
+- ['UserGuide/5. Marketing Tracking.md', '교육자료', '마케팅 트랙킹']
 
 
 

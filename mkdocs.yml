@@ -12,8 +12,8 @@ pages:
 - ['Developer/3. Promotion Guide.md', 'Operator Guide', 'Promotion']
 - ['Developer/3. marketing Guide.md', 'Operator Guide', 'Marketing']
 
-- ['Developer/4. Android Developer Guide.md', 'Developer Guide', 'Android']
-#- ['https://github.nhnent.com/TOASTCloud/DOCUMENT/blob/master/docs/Analytics/App%20Analytics/iOS%20Developer%60s%20Guide.md', 'Android']
+#- ['Developer/4. Android Developer Guide.md', 'Developer Guide', 'Android']
+- ['https://github.nhnent.com/TOASTCloud/DOCUMENT/blob/master/docs/Analytics/App%20Analytics/iOS%20Developer%60s%20Guide.md', 'Developer Guide', 'Android']
 - ['Developer/5. iOS Developer Guide.md', 'Developer Guide', 'iOS']
 - ['Developer/6. Unity Developer Guide.md', 'Developer Guide', 'Unity']
 - ['Developer/7. Campaign Developer Guide.md', 'Developer Guide', 'Campaign']

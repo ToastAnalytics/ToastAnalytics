@@ -4,16 +4,12 @@ Toast Analytics 개발 가이드와 [적용 Tip](https://github.com/ToastAnalyti
 
 ## Operator Guide
 - Getting Started
-- Campaign 
-- Promotion 
 - Marketing
 
 ## Developer Guide
 - Android 
 - iOS 
 - Unity 
-- Campaign 
-- Promotion 
 - API Return Code
 
 
